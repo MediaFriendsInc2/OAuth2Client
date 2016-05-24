@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name     = 'NXOAuth2Client'
+  s.name     = 'HWOAuth2Client'
   s.version  = '1.2.8'
   s.license  = {
     :type => 'BSD',
