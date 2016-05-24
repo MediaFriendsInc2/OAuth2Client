@@ -300,7 +300,7 @@
     
     SecKeychainItemRef item = nil;
     OSStatus err = SecKeychainFindGenericPassword(NULL,
-                                                  strlen([serviceName UTF8String]),
+                                                  (UInt32)strlen([serviceName UTF8String]),
                                                   [serviceName UTF8String],
                                                   0,
                                                   NULL,
@@ -349,11 +349,11 @@
     NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self];
     
     OSStatus __attribute__((unused))err = SecKeychainAddGenericPassword(NULL,
-                                                                        strlen([serviceName UTF8String]),
+                                                                        (UInt32)strlen([serviceName UTF8String]),
                                                                         [serviceName UTF8String],
                                                                         0,
                                                                         NULL,
-                                                                        [data length],
+                                                                        (UInt32)[data length],
                                                                         [data bytes],
                                                                         NULL);
     
@@ -365,7 +365,7 @@
     NSString *serviceName = [[self class] serviceNameWithProvider:provider];
     SecKeychainItemRef item = nil;
     OSStatus err = SecKeychainFindGenericPassword(NULL,
-                                                  strlen([serviceName UTF8String]),
+                                                  (UInt32)strlen([serviceName UTF8String]),
                                                   [serviceName UTF8String],
                                                   0,
                                                   NULL,
